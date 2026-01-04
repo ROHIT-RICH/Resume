@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rohit Vaishya | Full Stack Developer (MERN)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .resume-shell {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .resume {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.08), transparent 55%),
+                  radial-gradient(circle at top right, rgba(56, 189, 248, 0.06), transparent 55%),
+                  var(--card);
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      box-shadow:
+        0 24px 60px rgba(15, 23, 42, 0.8),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .header {
+      padding: 28px 28px 22px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 55%),
+                  radial-gradient(circle at top right, rgba(236, 72, 153, 0.24), transparent 55%),
+                  linear-gradient(135deg, #020617 0%, #020617 45%, #020617 100%);
+    }
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(199, 210, 254, 0.8);
+  background: #020617;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+    .name {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .title {
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #c7d2fe;
+    }
+
+    .contact {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #e5e7eb;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.9;
+    }
+
+    .pill-links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(199, 210, 254, 0.6);
+      background: rgba(15, 23, 42, 0.76);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(199, 210, 254, 0.7);
+    }
+
+    .pill-label {
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: #a5b4fc;
+    }
+
+    .body {
+      padding: 22px 24px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 16px 8px 24px;
+      }
+      .resume {
+        border-radius: 18px;
+      }
+      .header {
+        padding: 20px 18px 18px;
+      }
+      .body {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 18px 16px 18px;
+      }
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+    }
+
+    .section-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .summary {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .summary strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .chips {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.55);
+      border: 1px solid rgba(191, 219, 254, 0.5);
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px 16px;
+      font-size: 12px;
+    }
+
+    .skill-block-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 3px;
+    }
+
+    .skill-items {
+      color: var(--text-main);
+    }
+
+    .skill-items span {
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .company {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .period {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .item {
+      padding: 10px 10px 8px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(51, 65, 85, 0.85);
+      margin-bottom: 10px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      margin-bottom: 4px;
+    }
+
+    .item-header .title-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .item-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .item-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .item-link {
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .item-link a {
+      color: #93c5fd;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(147, 197, 253, 0.9);
+    }
+
+    .item-link a:hover {
+      color: #bfdbfe;
+    }
+
+    .bullets {
+      margin-top: 4px;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .bullets li {
+      margin-bottom: 3px;
+    }
+
+    .pill-meta-row {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .pill-meta {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .download-bar {
+      padding: 10px 18px 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      justify-content: flex-end;
+      background: radial-gradient(circle at bottom, rgba(79, 70, 229, 0.18), transparent 55%);
+    }
+
+    .btn-download {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.48), rgba(37, 99, 235, 0.96));
+      color: #f9fafb;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-download span.icon {
+      font-size: 13px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .resume {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+      .download-bar {
+        display: none;
+      }
+      .header {
+        background: #0f172a;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-shell">
+    <article class="resume">
+      <header class="header">
+  <div class="header-inner">
+    
+    <div class="header-text">
+      <div class="name">ROHIT VAISHYA</div>
+      <div class="title">FULL STACK DEVELOPER – MERN STACK</div>
+
+      <div class="contact">
+        <span>📍 Indore, Madhya Pradesh</span>
+        <span>📱 +91-9630970989</span>
+        <span>✉️ rvaishya69@gmail.com</span>
+      </div>
+
+      <div class="pill-links">
+        <div class="pill">
+          <span class="pill-label">Portfolio</span>
+          <a href="https://portfolio-github-io-ashy.vercel.app/" target="_blank">
+            portfolio-github-io-ashy.vercel.app
+          </a>
+        </div>
+        <div class="pill">
+          <span class="pill-label">GitHub</span>
+          <a href="https://github.com/ROHIT-RICH" target="_blank">
+            github.com/ROHIT-RICH
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE IMAGE -->
+    <img
+      src="https://avatars.githubusercontent.com/u/168424765?v=4"
+      alt="Rohit Vaishya"
+      class="profile-pic"
+    />
+
+  </div>
+</header>
+
+
+      <div class="body">
+        <!-- LEFT COLUMN -->
+        <section>
+          <!-- Summary -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Professional Summary</h2>
+            </div>
+            <p class="summary">
+              Dynamic and results-driven <strong>Full Stack Developer</strong> with 1.5+ years of hands-on experience
+              building scalable B2B, B2C, SaaS, and CMS-based applications from the ground up.
+              Proven expertise in designing robust REST APIs, optimizing frontend performance, and leading end-to-end
+              product development in fast-paced startup environments.
+              Known for rapid problem-solving, clean code architecture, and collaborating with cross-functional teams
+              to deliver production-grade solutions that drive business impact.
+            </p>
+            <p class="tagline">
+              Focused on shipping reliable products, simplifying complex flows, and aligning engineering with business goals.
+            </p>
+            <div class="chips">
+              <span class="chip">MERN Stack</span>
+              <span class="chip">B2B &amp; B2C Platforms</span>
+              <span class="chip">SaaS / CRM / EMS</span>
+              <span class="chip">End-to-End Ownership</span>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Professional Experience</h2>
+              <span class="section-sub">Recent roles</span>
+            </div>
+
+            <!-- Digital Fly High -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div>
+                    <div class="role">Full Stack Developer – MERN Stack</div>
+                    <div class="company">Digital Fly High Solutions, Indore</div>
+                  </div>
+                  <div class="period">Jul 2025 – Present</div>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Joined as the <strong>first Full Stack Developer</strong>, helping architect the technical foundation and establish development processes for a bootstrapped IT startup scaling B2B and B2C operations.</li>
+                <li>Led end-to-end development of multiple MERN-based B2B and B2C platforms, covering architecture, database design, API development, frontend integration, and production deployment.</li>
+                <li>Designed and implemented scalable REST APIs with authentication, validation, and error handling, achieving 98%+ uptime and smooth third-party integrations.</li>
+                <li>Optimized frontend performance via code splitting, lazy loading, and memoization, cutting page load time by ~35% and improving engagement.</li>
+                <li>Built a custom CRM system with lead management, task assignment, and performance reporting, reducing manual operational overhead by ~40%.</li>
+                <li>Owned full deployment lifecycle on VPS/shared hosting with Nginx, SSL, environment configuration, and CI/CD-aligned release practices.</li>
+                <li>Handled production bug fixes and performance audits, lowering error rates by ~25% across live applications.</li>
+                <li>Mentored junior developers on MERN best practices, code review standards, and Git workflows.</li>
+              </ul>
+            </div>
+
+            <!-- Saanvi Innovations -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div>
+                    <div class="role">Full Stack Developer</div>
+                    <div class="company">Saanvi Innovations, Gwalior</div>
+                  </div>
+                  <div class="period">Dec 2024 – May 2025</div>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Collaborated on frontend and backend modules using React.js and Node.js for B2B and B2C e-commerce platforms serving 500+ active users.</li>
+                <li>Helped design and implement secure REST APIs and MongoDB/MySQL schemas, improving query efficiency and response times by ~20%.</li>
+                <li>Implemented user authentication and role-based authorization to protect sensitive customer and business data.</li>
+                <li>Worked with UI/UX designers to ship responsive, pixel-perfect React interfaces from wireframes and prototypes.</li>
+                <li>Participated in code reviews and debugging sessions, improving stability and performance of core modules.</li>
+                <li>Delivered fully responsive experiences optimized for both mobile and desktop.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Key Projects MOVED HERE -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Key Projects</h2>
+              <span class="section-sub">Selected work</span>
+            </div>
+
+            <!-- B2B Marketplace -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">B2B Marketplace Platform – IndiaMART-like Portal</div>
+                </div>
+                <div class="item-meta">
+                  Stack: React.js, Node.js, Express.js, MongoDB, Nginx, VPS Deployment
+                </div>
+                <div class="item-link">
+                  Live: <a href="https://myindustryhouse.com/" target="_blank">https://myindustryhouse.com/</a>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Built a full-featured B2B marketplace connecting buyers and sellers with real-time lead management and in-app messaging, serving 200+ active users.</li>
+                <li>Implemented multi-role access (Buyer, Seller, Admin) with granular permissions to protect sensitive data and streamline workflows.</li>
+                <li>Delivered advanced search and filtering for category-based discovery, reducing navigation time by ~30%.</li>
+                <li>Configured VPS with Nginx, SSL, and optimizations to achieve ~99.5% uptime and stable performance under concurrent load.</li>
+                <li>Optimized DB queries and API responses, cutting average response time from 800ms to ~250ms (~68% improvement).</li>
+              </ul>
+            </div>
+
+            <!-- B2C E-commerce -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">B2C E-Commerce Platform – Online Store</div>
+                </div>
+                <div class="item-meta">
+                  Stack: React.js, Node.js, Express.js, MongoDB/MySQL
+                </div>
+                <div class="item-link">
+                  Live: <a href="https://thepetroshop.com/" target="_blank">https://thepetroshop.com/</a>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Developed a complete e-commerce system with product catalog, filtering, cart, checkout, and order management handling 50+ concurrent transactions daily.</li>
+                <li>Integrated secure payment gateway and robust order processing with proper transaction handling and recovery.</li>
+                <li>Built an admin dashboard for product, inventory, and order management, reducing manual work by ~45%.</li>
+                <li>Optimized mobile experience and checkout flow, improving mobile conversion by ~25%.</li>
+                <li>Achieved 99%+ query efficiency via indexing and schema optimization across 1000+ SKUs.</li>
+              </ul>
+            </div>
+
+            <!-- iRadio -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">iRadio Corporation – Digital Radio Streaming Platform</div>
+                </div>
+                <div class="item-meta">
+                  Stack: React.js, Node.js, Express.js, MongoDB, VPS, Nginx
+                </div>
+                <div class="item-link">
+                  Live: <a href="https://iradiocorporation.com/" target="_blank">https://iradiocorporation.com/</a>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Created a streaming-ready radio platform with genre-based stations, playlists, and secure content delivery.</li>
+                <li>Implemented authenticated, rate-limited APIs to prevent abuse while keeping streams smooth for legitimate users.</li>
+                <li>Built a dynamic UI for real-time station switching, track info, and user preferences.</li>
+                <li>Deployed on VPS with SSL and Nginx tuning to support 1000+ concurrent listeners across regions.</li>
+              </ul>
+            </div>
+
+            <!-- CRM & EMS -->
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">CRM &amp; Employee Management System (Internal)</div>
+                </div>
+                <div class="item-meta">
+                  Stack: React.js, Node.js, Express.js, MongoDB/MySQL
+                </div>
+                <div class="item-link">
+                  Live: <a href="https://echopulse.petrotechindia.com/" target="_blank">
+                    [https://echopulse.petrotechindia.com/](https://echopulse.petrotechindia.com/)
+                  </a>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li>Delivered an internal CRM + EMS for managing leads, tasks, employees, and performance metrics.</li>
+                <li>Implemented lead lifecycle with automated task assignment, status tracking, and pipeline analytics.</li>
+                <li>Built performance dashboards for KPIs and productivity, enabling data-driven HR decisions.</li>
+                <li>Added advanced search/filtering and exportable reports; system manages 200+ active leads and 25+ team members in real time.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <section>
+          <!-- Skills -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Technical Skills</h2>
+              <span class="section-sub">Core stack</span>
+            </div>
+            <div class="skills-grid">
+              <div>
+                <div class="skill-block-title">Frontend</div>
+                <div class="skill-items">
+                  <span>React.js</span>
+                  <span>JavaScript (ES6+)</span>
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>Tailwind CSS</span>
+                  <span>Bootstrap</span>
+                  <span>Responsive Design</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-block-title">Backend &amp; APIs</div>
+                <div class="skill-items">
+                  <span>Node.js</span>
+                  <span>Express.js</span>
+                  <span>REST API Design</span>
+                  <span>Authentication (JWT, OTP, Passkeys)</span>
+                  <span>Error Handling</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-block-title">Databases</div>
+                <div class="skill-items">
+                  <span>MongoDB</span>
+                  <span>MySQL</span>
+                  <span>Schema Design</span>
+                  <span>Query Optimization</span>
+                  <span>Data Modeling</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-block-title">DevOps &amp; Deploy</div>
+                <div class="skill-items">
+                  <span>AWS VPS</span>
+                  <span>Shared Hosting</span>
+                  <span>Nginx</span>
+                  <span>SSL</span>
+                  <span>Env Setup</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-block-title">Tools &amp; Workflow</div>
+                <div class="skill-items">
+                  <span>Git / GitHub</span>
+                  <span>Postman</span>
+                  <span>VS Code</span>
+                  <span>Agile</span>
+                  <span>Debugging</span>
+                  <span>Performance Profiling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Education</h2>
+            </div>
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">Bachelor of Technology (B.Tech) – Information Technology</div>
+                  <div class="period">2019 – 2023</div>
+                </div>
+                <div class="item-meta">ITM University, Gwalior</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications & Info -->
+          <div class="section">
+            <div class="section-title-row">
+              <h2 class="section-title">Training & Certifications</h2>
+            </div>
+            <div class="item">
+              <ul class="bullets">
+                <li><strong>Full Stack Development</strong> – Internshala / NSDC (2024)</li>
+                <li><strong>Mastering Node.js, Express.js &amp; MongoDB</strong> – NSDC (2024)</li>
+                <li><strong>Web Development</strong> – NSDC (2023)</li>
+                <li><strong>Developing Interactive Websites with JavaScript</strong> – NSDC (2023)</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-header">
+                <div class="title-line">
+                  <div class="item-title">Additional Information</div>
+                </div>
+              </div>
+              <ul class="bullets">
+                <li><strong>GitHub:</strong> <a href="https://github.com/ROHIT-RICH" target="_blank">github.com/ROHIT-RICH</a></li>
+                <li><strong>Open to:</strong> Full-stack roles, startup positions, and contract-based projects.</li>
+                <li><strong>Work style:</strong> Fast-paced startup environments, collaborative teams, and continuous learning-focused culture.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="download-bar">
+        <button class="btn-download" onclick="window.print()">
+          <span class="icon">⬇️</span>
+          <span>Print / Download as PDF</span>
+        </button>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
