@@ -389,23 +389,62 @@
     }
 
     @media print {
-      body {
-        background: #ffffff;
-        padding: 0;
-      }
-      .resume {
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-      }
-      .download-bar {
-        display: none;
-      }
-      .header {
-        background: #0f172a;
-      }
-    }
-  </style>
+
+  body {
+    background: #fff !important;
+    padding: 0;
+  }
+
+  .resume {
+    background: #fff !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .header {
+    background: #fff !important;
+    color: #000 !important;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .name,
+  .title,
+  .summary,
+  .tagline,
+  .role,
+  .company,
+  .period,
+  .item-title,
+  .item-meta,
+  .bullets,
+  .contact,
+  .skill-items,
+  .skill-block-title,
+  .section-sub {
+    color: #000 !important;
+  }
+
+  .section-title {
+    color: #1e40af !important;
+  }
+
+  .item,
+  .pill,
+  .chip {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  .download-bar {
+    display: none !important;
+  }
+}  </style>
 </head>
 <body>
   <div class="resume-shell">
@@ -484,6 +523,37 @@
               <span class="section-sub">Recent roles</span>
             </div>
 
+<!-- Webix Infotech -->
+<div class="item">
+  <div class="item-header">
+    <div class="title-line">
+      <div>
+        <div class="role">Full Stack Developer – MERN Stack</div>
+        <div class="company">Webix Infotech, Indore</div>
+      </div>
+      <div class="period">Apr 2026 – Present</div>
+    </div>
+  </div>
+
+  <ul class="bullets">
+    <li>Leading end-to-end development of enterprise-grade SaaS, HRMS, CRM, ERP, and automobile management platforms using the MERN stack.</li>
+
+    <li>Architected and developed a multi-tenant Human Resource Management System (HRMS) supporting Master Admin, Company Admin, Workspace Admin, Branch Admin, HR, Manager, and Employee roles with granular RBAC permissions.</li>
+
+    <li>Built comprehensive Payroll Management including salary structures, earnings, deductions, attendance integration, leave calculations, payslip generation, and payroll processing workflows.</li>
+
+    <li>Designed scalable Company → Workspace → Branch → Department → Employee hierarchy with complete data isolation and role-based access control.</li>
+
+    <li>Developed a WhatsApp-style CRM platform featuring lead management, customer communication, sales pipeline tracking, deal conversion, task assignment, and performance analytics.</li>
+
+    <li>Built Inventory and Accounting ERP modules including Purchases, Sales, Warehouses, Stock Management, Returns, Expenses, Payments, Financial Reports, and Invoice Management.</li>
+
+    <li>Designed and implemented scalable REST APIs, database architectures, authentication systems, and enterprise workflows while maintaining high performance and security standards.</li>
+
+    <li>Collaborated directly with stakeholders to convert business requirements into production-ready software solutions, reducing manual operational processes and improving organizational efficiency.</li>
+  </ul>
+</div>
+
             <!-- Digital Fly High -->
             <div class="item">
               <div class="item-header">
@@ -492,7 +562,7 @@
                     <div class="role">Full Stack Developer – MERN Stack</div>
                     <div class="company">Digital Fly High Solutions, Indore</div>
                   </div>
-                  <div class="period">Jul 2025 – Present</div>
+                  <div class="period">Jul 2025 – Mar 2026</div>
                 </div>
               </div>
               <ul class="bullets">
